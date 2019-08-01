@@ -33,12 +33,12 @@ def hello():
         email=request.form['email']
         password=request.form['password']
 
-    if form.validate():
-        write_to_disk(name, surname, email)
-        flash('Hello: {} {}'.format(name, surname))
+        if form.validate():
+            write_to_disk(name, surname, email)
+            flash('Hello: {} {}'.format(name, surname))
 
-    else:
-        flash('Error: All Fields are Required')
+        else:
+            flash('Error: All Fields are Required')
 
     return render_template('index.html', form=form)
 
